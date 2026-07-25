@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <title>Nexus Chat - Login</title>
+</head>
+
+<body>
+  <div class="login-wrapper">
+    <div class="login-card">
+      <div style="text-align: center;">
+        <div class="brand-badge">
+          <i class="fa-solid fa-comments"></i>
+        </div>
+        <h1 class="login-title">Nexus Chat</h1>
+        <p class="login-subtitle">Enter your details to join the workspace</p>
+      </div>
+
+      <form id="nicknameForm">
+        <div class="form-group-custom">
+          <label for="nicknameInput" class="form-label-custom">Username</label>
+          <input 
+            type="text" 
+            name="nickname" 
+            id="nicknameInput" 
+            class="input-custom" 
+            placeholder="e.g. alex_dev" 
+            required 
+            autofocus 
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="form-group-custom">
+          <label for="chatrooms" class="form-label-custom">Select Chat Room</label>
+          <select name="chatrooms" id="chatrooms" class="input-custom">
+            <option value="room1">⚡ General Room 1</option>
+            <option value="room2">🚀 Developers Room 2</option>
+            <option value="room3">✨ Lounge Room 3</option>
+          </select>
+        </div>
+
+        <button class="btn-accent" type="submit" style="margin-top: 12px;">
+          <span>Enter Workspace</span>
+          <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const nicknameForm = document.getElementById("nicknameForm");
+    const nicknameInput = document.getElementById("nicknameInput");
+    const chatroom = document.getElementById("chatrooms");
+
+    nicknameForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (nicknameInput.value.trim()) {
+        localStorage.setItem("nickname", nicknameInput.value.trim());
+        localStorage.setItem("chatroom", chatroom.value);
+        window.location.replace("/chat.html");
+      }
+    });
+  </script>
+</body>
+
+</html>

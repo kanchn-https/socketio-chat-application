@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <title>Nexus Chat - Workspace</title>
+</head>
+
+<body>
+  <div class="chat-app-wrapper">
+    <!-- Header Navigation & Online User Track -->
+    <header class="chat-header">
+      <div class="header-brand">
+        <div class="header-brand-icon">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div>
+          <div class="header-brand-title">Nexus Workspace</div>
+          <div class="header-room-badge mt-1">
+            <i class="fa-solid fa-hashtag"></i>
+            <span id="room-name-display">Active Channel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="online-track-container">
+        <span class="online-track-label">
+          <i class="fa-solid fa-circle" style="color: #22C55E; font-size: 8px; margin-right: 4px;"></i>
+          Online Members
+        </span>
+        <ul id="online-users-list">
+          <!-- Online user pills rendered dynamically -->
+        </ul>
+      </div>
+    </header>
+
+    <!-- Main Chat Workspace Card -->
+    <main class="chat-main-card">
+      <div id="chatContainer">
+        <ul id="chat-box">
+          <!-- Chat messages rendered dynamically -->
+        </ul>
+        <div id="feedback"></div>
+      </div>
+
+      <!-- Floating Bottom Input Dock -->
+      <div class="input-dock-container">
+        <form id="chatForm" class="input-dock-form">
+          <input 
+            type="text" 
+            name="message" 
+            id="messageInput" 
+            class="input-dock-field" 
+            placeholder="Type your message..." 
+            autocomplete="off" 
+          />
+          <button type="submit" class="btn-dock-send" title="Send Message">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <!-- Private Chat Modal -->
+  <div class="modal fade" id="pvChat" tabindex="-1" aria-labelledby="pvChatModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Private Message</h5>
+          <button type="button" class="close btn-close btn-close-white" data-bs-dismiss="modal" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="pvChatMessage"></div>
+          <form id="pvChatForm">
+            <div class="form-group-custom">
+              <label for="pvMessageInput" class="form-label-custom">Direct Message</label>
+              <textarea class="input-custom" id="pvMessageInput" rows="3" placeholder="Type a private message..." required></textarea>
+            </div>
+            <button type="submit" class="btn-accent mt-3">
+              <i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i>
+              Send Direct Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+
+</html>
