@@ -21,7 +21,7 @@
     "websockets"
   ],
   "author": "kanchn-https",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "dependencies": {
     "@types/express": "^4.17.17",
     "@types/socket.io": "^3.0.2",
